@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device=width, initial-scale=1.0">
+    <title>products</title>
+  </head>
+  <body>
+    <h3>Products:</h3>
+    <ol>
+      <% for(let product of products){ %>
+        <li>
+          <p>Name: <%= product.name %>
+            <a href="/products/<%=product._id%>"> Detail</a> 
+            <a href="/products/<%=product._id%>/edit"> Edit</a>
+            <form action="/products/<%= product._id%>?_method=delete" method="post">
+              <button>Delete</button>
+            </form>
+          </p>
+        </li>
+      <% } %>
+    </ol>
+    <a href="/products/new"> Add new product</a>
+</body>
+</html>
